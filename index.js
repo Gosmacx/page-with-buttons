@@ -1,6 +1,6 @@
 const ayarlar = {
-    token: "NjE4MDIwMDQ0NjAwNzcwNTYw.XWzmBA.FYtNOMRVkTg66aH03ChmOktfyAs",
-    prefix: "!!"
+    token: "",
+    prefix: "!"
 }
 const Discord = require("discord.js")
 const client = new Discord.Client
