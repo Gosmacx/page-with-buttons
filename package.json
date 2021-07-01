@@ -1,0 +1,16 @@
+{
+  "name": "page-with-buttons",
+  "version": "1.0.0",
+  "description": "Yeni gelen button özelliği ile sayfalı embed yapımı",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord-buttons": "^3.2.1",
+    "discord.js": "^12.5.3"
+  }
+}
