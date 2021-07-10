@@ -1,5 +1,5 @@
 const ayarlar = {
-    token: "Botun Tokeni",
+    token: "Bot Token",
     prefix: "!"
 }
 const Discord = require("discord.js")
@@ -12,6 +12,13 @@ client.login(ayarlar.token)
 client.on('ready', () => {
    console.log("Hazırım")
 })
+
+
+const sayfalar = [//Sayfaların içeriklerini burdan ekleyebilir veya düzenleyebilirsiniz.
+    "Sayfa içeriği \n\n> **Gosmac**",
+    ":cat: Kedileri Severim \n\n> **Gosmac**",
+    ":watermelon: Karpuz Güzeldir! \n\n> **Gosmac**"
+]
 
 
 client.on('message', message => {
@@ -34,18 +41,10 @@ client.on('message', message => {
         let embed = new Discord.MessageEmbed()
         .setTitle("Sayfalı Embed")
         .setDescription("Sayfa içeriği \n\n> **Gosmac**")
-        .setFooter("Sayfa 1 / 3")//Sayfa eklemek isterseniz burdan arttırmanız gerek.
+        .setFooter(`Sayfa 1 / ${sayfalar.length}`)
 		message.channel.send({embed, buttons:[sol, sağ]});
 	}
 });
-
-
-
-const sayfalar = [//Sayfaların içeriklerini burdan düzenleyebilirsiniz.
-    "Sayfa içeriği \n\n> **Gosmac**",
-    ":cat: Kedileri Severim \n\n> **Gosmac**",
-    ":watermelon: Karpuz Güzeldir! \n\n> **Gosmac**"
-]
 
 client.on('clickButton', async button => {
 
@@ -67,7 +66,7 @@ if (button.id === "sağ") {
     if (sayfa[1] == 4) {
         sayfa[1] = 1
     }
-    button.message.embeds[0].footer.text = `Sayfa ${sayfa[1]} / 3`//Eğer sayfa eklediyseniz burdaki rakamı arttırmanız gerek.
+    button.message.embeds[0].footer.text = `Sayfa ${sayfa[1]} / ${sayfalar.length}`
 
     //Sayfa parametrelerinin işlevlerini belirliyoruz.
     if (sayfa[1] == 1) {
@@ -91,7 +90,7 @@ if (button.id === "sol") {
         sayfa[1] = 3
     }
 
-    button.message.embeds[0].footer.text = `Sayfa ${sayfa[1]} / 3`
+    button.message.embeds[0].footer.text = `Sayfa ${sayfa[1]} / ${sayfalar.length}`
     
     if (sayfa[1] == 1) {
         button.message.embeds[0].description = sayfalar[0]
