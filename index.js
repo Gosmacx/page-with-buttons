@@ -1,5 +1,5 @@
 const ayarlar = {
-    token: "Müthiş Gizli Bot Tokeniniz",
+    token: "Süper Gizli Bot Tokeni",
     prefix: "!"
 }
 const Discord = require("discord.js")
@@ -63,7 +63,7 @@ if (button.id === "sağ") {
 
     let sayfa = button.message.embeds[0].footer.text.split(" ")//Embed üzerinden sayfa değerini alıyoruz.
     sayfa[1]++
-    if (sayfa[1] == 4) {
+    if (sayfa[1] == sayfalar.length+1) {
         sayfa[1] = 1
     }
 
@@ -80,7 +80,7 @@ if (button.id === "sol") {
     let sayfa = button.message.embeds[0].footer.text.split(" ")
     sayfa[1]-- //Yukarıdaki "sağ" butondan tek farkı sayfa parametresini azaltıyoruz.
     if (sayfa[1] == 0) {
-        sayfa[1] = 3
+        sayfa[1] = sayfalar.length
     }
 
     button.message.embeds[0].footer.text = `Sayfa ${sayfa[1]} / ${sayfalar.length}`
