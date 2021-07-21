@@ -1,5 +1,5 @@
 const ayarlar = {
-    token: "Süper Gizli Bot Tokeni",
+    token: "Müthiş Gizli Bot Tokeni",
     prefix: "!"
 }
 const Discord = require("discord.js")
