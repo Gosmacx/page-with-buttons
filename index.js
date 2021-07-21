@@ -1,5 +1,5 @@
 const ayarlar = {
-    token: "Bot Token",
+    token: "Müthiş Gizli Bot Tokeniniz",
     prefix: "!"
 }
 const Discord = require("discord.js")
@@ -66,16 +66,9 @@ if (button.id === "sağ") {
     if (sayfa[1] == 4) {
         sayfa[1] = 1
     }
-    button.message.embeds[0].footer.text = `Sayfa ${sayfa[1]} / ${sayfalar.length}`
 
-    //Sayfa parametrelerinin işlevlerini belirliyoruz.
-    if (sayfa[1] == 1) {
-        button.message.embeds[0].description = sayfalar[0]
-    }else if (sayfa[1] == 2) {
-        button.message.embeds[0].description = sayfalar[1]
-    } else if (sayfa[1] == 3) {
-        button.message.embeds[0].description = sayfalar[2]
-    }
+    button.message.embeds[0].footer.text = `Sayfa ${sayfa[1]} / ${sayfalar.length}`//Embedin footerini yeniliyoruz.
+    button.message.embeds[0].description = sayfalar[sayfa[1]-1]//Embedin description kısmını yeniliyoruz.
 
     button.message.edit({embed: button.message.embeds[0], buttons:[sol, sağ]})//Son olarak embedi editliyoruz.
     button.defer();
@@ -85,20 +78,13 @@ if (button.id === "sağ") {
 if (button.id === "sol") {
     
     let sayfa = button.message.embeds[0].footer.text.split(" ")
-    sayfa[1]-- //Yukarıdaki; sağ butondan tek farkı sayfa parametresini azaltıyoruz.
+    sayfa[1]-- //Yukarıdaki "sağ" butondan tek farkı sayfa parametresini azaltıyoruz.
     if (sayfa[1] == 0) {
         sayfa[1] = 3
     }
 
     button.message.embeds[0].footer.text = `Sayfa ${sayfa[1]} / ${sayfalar.length}`
-    
-    if (sayfa[1] == 1) {
-        button.message.embeds[0].description = sayfalar[0]
-    }else if (sayfa[1] == 2) {
-        button.message.embeds[0].description = sayfalar[1]
-    } else if (sayfa[1] == 3) {
-        button.message.embeds[0].description = sayfalar[2]
-    }
+    button.message.embeds[0].description = sayfalar[sayfa[1]-1]
 
     button.message.edit({embed: button.message.embeds[0], buttons:[sol, sağ]})
     button.defer();
